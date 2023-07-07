@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Piedra Papel o Tijeras</title>
+</head>
+<body>
+    <script>
+       
+        const elecciones = ["piedra", "papel", "tijera"];
+        function eleccionUsuario() {
+            respuestausuario = prompt("Escoge entre" + " " + elecciones).toLowerCase();
+            return respuestausuario;
+        }
+
+        function eleccionCompu() {
+            respuestacompu = elecciones[Math.floor(Math.random() * elecciones.length)];
+            return respuestacompu;    
+        }
+
+        let scorehumano = 0;
+        let scorecompu = 0;
+        let stopjuego = 0;
+    
+
+        function game() {
+            for (let i = 0; i < 5; i++) {
+                const userChoice = eleccionUsuario();
+                const compChoice = eleccionCompu();
+
+                function decisiones() {
+
+                    if (userChoice === "piedra" && compChoice === "papel") {
+                        scorecompu += 1;
+                    } else if (userChoice === "tijera" && compChoice === "piedra") {
+                        scorecompu += 1;
+                    } else if (userChoice === "papel" && compChoice === "tijera") {
+                        scorecompu += 1;
+                    } else if (compChoice === "tijera" && userChoice === "piedra") {
+                        scorehumano += 1;
+                    } else if (compChoice === "papel" && userChoice === "tijera") {
+                        scorehumano += 1;
+                    } else if (compChoice === "papel" && userChoice === "tijera") {
+                        scorehumano += 1;
+                    }
+                console.log("SCORE PC:" + scorecompu);
+                console.log("SCORE HUMANO:" + scorehumano);
+                }
+
+                decisiones();
+            }
+        }
+
+
+        game();
+
+        if (scorecompu > scorehumano) {
+            gana = "Gana PC" +" "+ scorecompu + " " + "a" + " " + scorehumano
+            console.log(gana)
+        }else{
+            ganaop2 = "Gana Humano"+ " " + scorehumano + " " + "a" + " " + scorecompu    
+            console.log(ganaop2)
+        }
+       
+
+
+ 
+    </script>
+
+    
+</body>
+</html>
